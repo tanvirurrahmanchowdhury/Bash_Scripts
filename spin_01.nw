@@ -1,0 +1,24 @@
+echo 
+
+title "carbon atom" 
+
+start carbon_fon 
+
+geometry  
+  C   0.0 0.0 0.0  
+end  
+
+basis  
+ * library aug-cc-pvdz  
+end
+
+dft 
+ odft
+ grid xfine  
+ convergence energy 1d-8  
+ xc scan  
+ fon alpha partial 3 electrons 1.0 filled 2 
+ fon beta  partial 3 electrons 1.0 filled 2
+end
+
+task dft energy
